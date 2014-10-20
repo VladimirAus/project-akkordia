@@ -9,10 +9,11 @@ table.ukulele-chord td {
   overflow: hidden;
   word-break: normal;
   line-height: 12px;
+  width: 12px;
 }
 .ukulele-chord-chart {
   position: absolute;
-  margin-left: 5px;
+  margin-left: 6px;
   margin-top: 12px;
 }
 .ukulele-chord-chart td {
@@ -27,7 +28,16 @@ table.ukulele-chord td {
   border-color: transparent;
   color: #333;
 }
-.ukulele-chord-notes td.note-hidden,
-.ukulele-chord-notes td.fret-0 {
-  color: transparent;
+@media all {
+  .ukulele-chord-notes td.note-hidden,
+  .ukulele-chord-notes td.fret-0 {
+    color: transparent;
+  }
+}
+@media print {
+  .ukulele-chord-notes td.note-hidden,
+  .ukulele-chord-notes td.fret-0 {
+    color: #fff;
+    visibility: hidden;
+  }
 }
