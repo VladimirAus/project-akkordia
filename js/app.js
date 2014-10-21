@@ -2,24 +2,38 @@ angular.module('tes.akkordia.app', [])
 	.controller('AppController', ['$scope', function($scope) {
 		$scope.settings = {
       uke: {
-        notes: {vert: [0,1,2,3,4,5], horiz: ['G', 'C', 'E', 'A']},
-        frets: {vert: [0,1,2,3,4], horiz: [0,1,2]},
+        // vert
+        // notes: {vert: [0,1,2,3,4,5], horiz: [0,1,2,3]},
+        // frets: {vert: [0,1,2,3,4], horiz: [0,1,2]},
+        // horiz
+        notes: {vert: [0,1,2,3,4,5], horiz: [3,2,1,0]},
+        frets: {vert: [4,3,2,1,0], horiz: [2,1,0]},
         chords: {
           "C7": ["0-0", "1-0", "2-0", "3-1"],
           "C#": ["0-1", "1-1", "2-1", "3-4"],
           "C#7": ["0-1", "1-1", "2-1", "3-2"],
+          "Cm7": ["0-3", "1-3", "2-3", "3-3"],
+          "Cmaj7": ["0-0", "1-0", "2-0", "3-2"],
           "Fmaj7": ["0-2", "1-4", "2-1", "3-3"],
           "F#": ["0-3", "1-1", "2-2", "3-1"],
           "F#m": ["0-2", "1-1", "2-2", "3-0"],
+          "G6": ["0-0", "1-2", "2-0", "3-2"],
+          "G7": ["0-0", "1-2", "2-1", "3-2"],
           "Gm7": ["0-0", "1-2", "2-1", "3-1"],
           "G#": ["0-5", "1-3", "2-4", "3-3"],
           "D": ["0-2", "1-2", "2-2", "3-5"],
           "D7": ["0-2", "1-2", "2-2", "3-3"],
+          "Dm7": ["0-2", "1-2", "2-1", "3-3"],
+          "Eb7": ["0-3", "1-3", "2-3", "3-4"],
           "E": ["0-4", "1-4", "2-4", "3-2"],
+          "E7#9": ["0-1", "1-2", "2-3", "3-2"],
+          "Abmaj7": ["0-1", "1-3", "2-3", "3-3"],
           "A": ["0-2", "1-1", "2-0", "3-0"],
+          "A7": ["0-0", "1-1", "2-0", "3-0"],
           "Am7": ["0-0", "1-4", "2-3", "3-3"],
           "Am7b5": ["0-0", "1-3 ", "2-3", "3-3"],
           "Bbmaj7": ["0-3", "1-2", "2-1", "3-0"],
+          "Bbm7": ["0-1", "1-1", "2-1", "3-1"],
           "B": ["0-4", "1-3", "2-2", "3-2"],
           "B7": ["0-2", "1-3", "2-2", "3-2"],
           "Bm": ["0-4", "1-2", "2-2", "3-2"],
@@ -76,20 +90,41 @@ angular.module('tes.akkordia.app', [])
       },
       {title: "Autumn In New York", performer: "-", author: "Vernon Duke",
         lyrics: [
-        {line: ""},{line: ""},{line: ""},,{line: ""},{line: ""},
+        {line: ""},{line: ""},{line: ""},{line: ""},{line: ""},
+        {line: ""},{line: ""},{line: ""},{line: ""},{line: ""},
         ],
         chords: [
           [{chord:"Gm7", len: 2}, {chord:"Am7", len: 2},{chord:"Bbmaj7", len: 2}, {chord:"C7", len: 2}],
           [{chord:"Fmaj7", len: 4}, {chord:"Am7", len: 2}, {chord:"D7", len: 2}],
           {repeat:0},
-          [{chord:"Am7b5", len: 4},{chord:"D7", len: 4}] 
+          [{chord:"Am7b5", len: 4},{chord:"D7", len: 4}],
+          [{chord:"Gm7", len: 4}, {chord:"Bbm7", len: 2},{chord:"Eb7", len: 2}],
+          [{chord:"Abmaj7", len: 6}, {chord:"G7", len: 2}],
+          [{chord:"Cm7", len: 4}, {chord:"G7", len: 4}],
+          [{chord:"Cmaj7", len: 4}, {chord:"Am7", len: 2}, {chord:"D7", len: 2}],
+
+        ],
+      },
+      {title: "I'm just Lucky So and So", performer: "-", author: "Vernon Duke",
+        lyrics: [
+        {line: ""},{line: ""},{line: "Repeat 1"},{line: ""},{line: "Repeat 2"},
+        {line: ""},{line: ""},{line: ""},{line: ""},{line: ""},
+        ],
+        chords: [
+          [{chord:"G6", len: 4}, {chord:"Cmaj7", len: 4}],
+          [{chord:"G6", len: 4}, {chord:"Dm7", len: 2}, {chord:"G7", len: 2}],
+          [{chord:"C7", len: 2}, {chord:"A7", len: 2}, {chord:"Am7", len: 2}, {chord:"D7", len: 2}],
+          [{chord:"G6", len: 2}, {chord:"E7#9", len: 2}, {chord:"Am7", len: 2}, {chord:"D7", len: 2}],
+          {empty:0},
+          [{chord:"G6", len: 2}, {chord:"C7", len: 2}, {chord:"G6", len: 4}],
+          {empty:0},
         ],
       }
     ];
 
     // Functions
     $scope.getSong = function(chord) {
-      return $scope.song[1];
+      return $scope.song[2];
     };
     $scope.getChordsForLine = function(index) {
       var song = $scope.getSong();

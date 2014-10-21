@@ -33,15 +33,17 @@
           <div class="col-xs-12">
         
             <button class="btn btn-default col-xs-{{getChordLen(chord)}}" ng-repeat="chord in getChordsForLine($index)">{{chord.chord}}
-            <div>
+            <div class="chord-horiz">
+            <!-- <div class="chord-vert"> -->
               <table class="ukulele-chord ukulele-chord-chart">
-                <tr ng-repeat="fret in settings.uke.frets.vert">
-                  <td ng-repeat="string in settings.uke.frets.horiz">&nbsp;</td>
+                <tr ng-repeat="fret in settings.uke.frets.horiz">
+                  <td ng-repeat="string in settings.uke.frets.vert">&nbsp;</td>
                 </tr>
               </table>
               <table class="ukulele-chord ukulele-chord-notes">
-                <tr ng-repeat="fret in settings.uke.notes.vert">
-                  <td class="string-{{$index}} fret-{{$parent.$index}} note-{{getChordNote(chord.chord, $index, $parent.$index)}}" ng-repeat="string in settings.uke.notes.horiz">&bull;</td>
+                <tr ng-repeat="fret in settings.uke.notes.horiz">
+                  <!-- <td class="string-{{$index}} fret-{{$parent.$index}} note-{{getChordNote(chord.chord, $index, $parent.$index)}}" ng-repeat="string in settings.uke.notes.vert">&bull;</td> -->
+                  <td class="string-{{fret}} fret-{{string}} note-{{getChordNote(chord.chord, fret, string)}}" ng-repeat="string in settings.uke.notes.vert">&bull;</td>
                 </tr>
               </table>
             </div>
